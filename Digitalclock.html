@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Digital Clock</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        #clock {
+            color: wheat;
+            align-content: center;
+            text-align: center;
+            margin-top: 15%;
+            font-size: 70px;
+            font-family: Rockwell;
+        }
+
+        #datec {
+            color: wheat;
+        }
+        #headt{
+            color: cadetblue;
+            font-size: 60px;
+            text-align: center;
+            margin-top: 3%;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div id="headt">Digital Clock</div>
+    <div id="clock">
+        <script type="text/javascript">
+            function run() {
+                var date = new Date();
+                var h = date.getHours();
+                var m = date.getMinutes();
+                var s = date.getSeconds();
+                var t = date.getFullYear();
+                var session = "AM";
+                if(h<10){
+                    h="0"+h;
+                }
+                if(m<10){
+                    m="0"+m;
+                }
+                if(s<10){
+                    s="0"+s;
+                }
+                if(h==0){
+                    h=12;
+                }
+                if(h>12){
+                    h=h-12;
+                    session="PM";
+                }
+                document.getElementById("clock").innerHTML = h + " : " + m + " : " + s + "  " + session+" "+t;
+
+                setTimeout(run);
+            }
+            run();
+        </script>
+</body>
+</html>
